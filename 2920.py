@@ -1,18 +1,17 @@
-x = input()
+a = list(map(int, input().split(' ')))
 
-input_list = x.split(' ')
-result = ''
+ascending = True
+descending = True
 
-for index in range(len(input_list) - 1):
-    if input_list[index] < input_list[index+1] and result == 'descending':
-        result = 'mixed'
-        break
-    elif input_list[index] > input_list[index+1] and result == 'ascending':
-        result = 'mixed'
-        break
-    elif input_list[index] < input_list[index+1]:
-        result = 'ascending'
-    elif input_list[index] > input_list[index+1]:
-        result = 'descending'
+for i in range(len(a)-1):
+    if a[i] < a[i+1]:
+        descending = False
+    elif a[i] > a[i+1]:
+        ascending = False
 
-print(result)
+if ascending:
+    print('ascending')
+elif descending:
+    print('descending')
+else:
+    print('mixed')
