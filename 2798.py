@@ -1,15 +1,12 @@
 N, M = map(int, input().split(' '))
 cards = list(map(int, input().split(' ')))
 
-sum = list()
+result = 0
 for i in range(N):
     for j in range(i+1, N):
         for k in range(j+1, N):
-            sum.append(cards[i]+cards[j]+cards[k])
+            sum_value = cards[i]+cards[j]+cards[k]
+            if sum_value <= M:
+                result = max(result, sum_value)
 
-sum.sort(reverse=True)
-
-for i in sum:
-    if i <= M:
-        print(i)
-        break
+print(sum_value)
