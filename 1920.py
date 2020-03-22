@@ -1,9 +1,5 @@
 N = int(input())
-A_list = list(map(int, input().split(' ')))
-
-hash = {}
-for num in A_list:
-    hash[num] = True
+A_list = set(map(int, input().split(' ')))
 
 M = int(input())
 num_list = list(map(int, input().split(' ')))
