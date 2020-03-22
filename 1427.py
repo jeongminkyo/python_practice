@@ -1,14 +1,6 @@
 N = input()
 
-array = []
-
-for i in N:
-    array.append(int(i))
-
-array.sort(reverse=True)
-
-return_str = ''
-for i in array:
-    return_str += str(i)
-
-print(return_str)
+for i in range(9, -1, -1):
+    for j in N:
+        if int(j) == i:
+            print(i, end='')
