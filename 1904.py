@@ -1,21 +1,11 @@
 n = int(input())
 
-set_list = []
+dp = [0] * 1000001
 
-set_list.append(set(['1']))
-set_list.append(set(['00', '11']))
+dp[1] = 1
+dp[2] = 2
 
-for i in range(2, n):
-    input_set = set([])
-    for num_set in set_list[i-1]:
-        input_set.add(num_set + '1')
-        input_set.add('1' + num_set)
-    for num_set in set_list[i-2]:
-        input_set.add('00' + num_set)
-        input_set.add('11' + num_set)
-        input_set.add(num_set + '00')
-        input_set.add(num_set + '11')
+for i in range(3, n+1):
+    dp[i] = (dp[i-1] + dp[i-2]) % 15746
 
-    set_list.append(input_set)
-
-print(len(set_list[n-1]) % 15746)
+print(dp[n])
